@@ -10,6 +10,23 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                     You're logged in!
+
+                    <!-- Role-Based Button -->
+                    <div class="mt-6">
+                        @if (Auth::user()->role === 'admin')
+                            <x-button>
+                                <a href={{ route('admin.items.index') }}>
+                                    Kelola Barang
+                                </a>
+                            </x-button>
+                        @else
+                            <x-button>
+                                <a href={{ route('user.items.index') }}>
+                                    Belanja Barang
+                                </a>
+                            </x-button>
+                        @endif
+                    </div>
                 </div>
             </div>
         </div>
